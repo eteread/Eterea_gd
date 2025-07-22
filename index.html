@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Etérea - Flores Eternas Hechas a Mano</title>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    line-height: 1.6;
+    color: #5d4037;
+    background: linear-gradient(135deg, #f5f2e8 0%, #faf7f0 100%);
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+header {
+    background: rgba(139, 122, 104, 0.95);
+    backdrop-filter: blur(10px);
+    color: white;
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #f5f2e8;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+}
+
+.nav-links a:hover {
+    background: rgba(255,255,255,0.2);
+    transform: translateY(-2px);
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, #8b7a68 0%, #a69082 100%);
+    color: white;
+    text-align: center;
+    padding: 120px 0 80px;
+    margin-top: 70px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="flowers" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="2" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23flowers)"/></svg>');
+    opacity: 0.3;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+    letter-spacing: 3px;
+}
+
+.hero p {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.8;
+}
+
+/* Sections */
+.section {
+    padding: 80px 0;
+}
+
+.section h2 {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 3rem;
+    color: #5d4037;
+    position: relative;
+}
+
+.section h2::after {
+    content: '';
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(45deg, #d4af37, #ffd700);
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Products Grid */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    margin-top: 4rem;
+}
+
+.product-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    text-align: center;
+    border: 1px solid rgba(139, 122, 104, 0.1);
+    cursor: pointer;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+}
+
+.product-image {
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(135deg, #f8f4e6, #e8dcc0);
+    border-radius: 50%;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: #8b7a68;
+    border: 3px solid rgba(139, 122, 104, 0.2);
+    background-size: cover;
+    background-position: center;
+}
+
+.product-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #5d4037;
+}
+
+.product-includes {
+    background: #f8f4e6;
+    padding: 1rem;
+    border-radius: 10px;
+    margin: 1rem 0;
+    text-align: left;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.product-includes ul {
+    list-style: none;
+}
+
+.product-includes li {
+    margin: 0.3rem 0;
+    padding-left: 1rem;
+    position: relative;
+}
+
+.product-includes li::before {
+    content: '🌸';
+    position: absolute;
+    left: 0;
+}
+
+.price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #d4af37;
+    margin: 1rem 0;
+}
+
+/* Categories */
+.categories {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 3rem 0;
+    flex-wrap: wrap;
+}
+
+.category-btn {
+    padding: 1rem 2rem;
+    background: white;
+    border: 2px solid #8b7a68;
+    border-radius: 25px;
+    color: #8b7a68;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.category-btn:hover,
+.category-btn.active {
+    background: #8b7a68;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Process Section */
+.process {
+    background: white;
+    border-radius: 20px;
+    padding: 3rem;
+    margin: 3rem 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.process-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.process-step {
+    text-align: center;
+    padding: 2rem;
+}
+
+.process-step .step-number {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(45deg, #d4af37, #ffd700);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0 auto 1rem;
+}
+
+/* Contact Section */
+.contact-info {
+    background: linear-gradient(135deg, #8b7a68 0%, #a69082 100%);
+    color: white;
+    padding: 3rem;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.contact-methods {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.contact-method {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.contact-method .icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+/* Footer */
+footer {
+    background: #5d4037;
+    color: white;
+    text-align: center;
+    padding: 3rem 0;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h3 {
+    margin-bottom: 1rem;
+    color: #d4af37;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.social-links a {
+    width: 50px;
+    height: 50px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background: #d4af37;
+    transform: translateY(-3px);
+}
+
+.contact-method a:hover {
+    background: #d4af37 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    overflow: auto;
+}
+
+.modal-content {
+    background: white;
+    margin: 5% auto;
+    padding: 2rem;
+    border-radius: 20px;
+    width: 80%;
+    max-width: 900px;
+    position: relative;
+    animation: modalopen 0.5s;
+}
+
+@keyframes modalopen {
+    from {opacity: 0; transform: translateY(-50px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+.close-modal {
+    position: absolute;
+    right: 2rem;
+    top: 1.5rem;
+    font-size: 2rem;
+    color: #8b7a68;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.close-modal:hover {
+    color: #5d4037;
+    transform: rotate(90deg);
+}
+
+.modal-body {
+    display: flex;
+    gap: 3rem;
+    margin-top: 1rem;
+}
+
+.modal-image {
+    flex: 1;
+    min-height: 400px;
+    background: #f8f4e6;
+    border-radius: 15px;
+    background-size: cover;
+    background-position: center;
+}
+
+.modal-info {
+    flex: 1;
+}
+
+.modal-title {
+    font-size: 2rem;
+    color: #5d4037;
+    margin-bottom: 1.5rem;
+}
+
+.modal-includes {
+    background: #f8f4e6;
+    padding: 1.5rem;
+    border-radius: 15px;
+    margin-bottom: 1.5rem;
+}
+
+.modal-includes ul {
+    list-style: none;
+}
+
+.modal-includes li {
+    margin: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.modal-includes li::before {
+    content: '🌸';
+    position: absolute;
+    left: 0;
+}
+
+.modal-price {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #d4af37;
+    margin-bottom: 2rem;
+}
+
+.order-button {
+    background: linear-gradient(45deg, #8b7a68, #a69082);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    width: 100%;
+}
+
+.order-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(139, 122, 104, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero p {
+        font-size: 1.1rem;
+    }
+    
+    .section h2 {
+        font-size: 2.5rem;
+    }
+    
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-methods {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .modal-content {
+        width: 95%;
+        margin: 2% auto;
+    }
+    
+    .modal-body {
+        flex-direction: column;
+    }
+    
+    .modal-image {
+        min-height: 250px;
+    }
+}
+</style>
+</head>
+
+<body>
+<!-- Header -->
+<header>
+    <nav class="container">
+        <div class="logo">Etérea</div>
+        <ul class="nav-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#productos">Productos</a></li>
+            <li><a href="#proceso">Proceso</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Hero Section -->
+<section id="inicio" class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1>Etérea</h1>
+            <p>Colección única de flores eternas hechas a mano, diseñadas para capturar la belleza de lo efímero y transformarla en arte duradero. Cada flor está elaborada con telas finas, texturas suaves y una paleta de colores que van desde tonos pastel hasta combinaciones vibrantes.</p>
+            <p style="margin-top: 2rem; font-style: italic;">"Tan suaves como un suspiro, tan eternas como tu recuerdo"</p>
+        </div>
+    </div>
+</section>
+
+<!-- Products Section -->
+<section id="productos" class="section">
+    <div class="container">
+        <h2>Nuestra Colección</h2>
+        <p style="text-align: center; font-size: 1.2rem; color: #8b7a68; margin-bottom: 3rem;">
+            "Tan suaves como un suspiro, tan eternas como tu recuerdo"
+        </p>
+
+        <!-- Categories -->
+        <div class="categories">
+            <a href="#" class="category-btn active" data-category="all">Todos los Productos</a>
+            <a href="#" class="category-btn" data-category="ramos">Ramos</a>
+            <a href="#" class="category-btn" data-category="coronas">Coronas</a>
+            <a href="#" class="category-btn" data-category="especiales">Especiales</a>
+            <a href="#" class="category-btn" data-category="infantiles">Infantiles</a>
+        </div>
+
+        <div class="products-grid">
+            <!-- Ramos -->
+            <div class="product-card" data-category="ramos" data-image="https://raw.githubusercontent.com/eteread/eterea-imagenes/main/Ramo%20Girasoles.png">
+                <div class="product-image" style="background-image: url('https://raw.githubusercontent.com/eteread/eterea-imagenes/main/Ramo%20Girasoles.png')"></div>
+                <h3>Ramo Clásico</h3>
+                <div class="product-includes">
+                    <strong>Incluye:</strong>
+                    <ul>
+                        <li>1 Girasol</li>
+                        <li>2 Tulipanes</li>
+                        <li>Dos Chocolates</li>
+                        <li>Tarjeta personalizada</li>
+                    </ul>
+                </div>
+                <div class="price">Consultar precio</div>
+            </div>
+
+            <div class="product-card" data-category="ramos" data-image="https://raw.githubusercontent.com/eteread/eterea-imagenes/main/GirasolRosa.png">
+                <div class="product-image" style="background-image: url('https://raw.githubusercontent.com/eteread/eterea-imagenes/main/GirasolRosa.png')"></div>
+                <h3>Ramo Elegante</h3>
+                <div class="product-includes">
+                    <strong>Incluye:</strong>
+                    <ul>
+                        <li>2 Girasoles</li>
+                        <li>2 Rosas</li>
+                        <li>3 Ramas con hojas</li>
+                        <li>Tarjeta personalizada</li>
+                    </ul>
+                </div>
+                <div class="price">Consultar precio</div>
+            </div>
+
+            <div class="product-card" data-category="ramos" data-image="https://raw.githubusercontent.com/eteread/eterea-imagenes/main/Flores%20GirasolesCentro.png">
+                <div class="product-image" style="background-image: url('https://raw.githubusercontent.com/eteread/eterea-imagenes/main/Flores%20GirasolesCentro.png')"></div>
+                <h3>Ramo de Girasoles</h3>
+                <div class="product-includes">
+                    <strong>Incluye:</strong>
+                    <ul>
+                        <li>3 Girasoles</li>
+                        <li>2 Mariposas</li>
+                        <li>Tarjeta personalizada</li>
+                        <li>1 Foto</li>
+                    </ul>
+                </div>
+                <div class="price">Consultar precio</div>
+            </div>
+
+            <div class="product-card" data-category="ramos" data-image="https://raw.githubusercontent.com/eteread/eterea-imagenes/main/Dalia.png">
+                <div class="product-image" style="background-image: url('https://raw.githubusercontent.com/eteread/eterea-imagenes/main/Dalia.png')"></div>
+                <h3>Ramo de Dalias</h3>
+                <div class="product-includes">
+                    <strong>Incluye:</strong>
+                    <ul>
+                        <li>6 Dalias</li>
+                        <li>Velo de novia</li>
+                        <li>Color a su elección</li>
+                    </ul>
+                </div>
+                <div class="price">Consultar precio</div>
+            </div>
+
+            <div class="product-card" data-category="ramos" data-image="https://raw.githubusercontent.com/eteread/eterea-imagenes/main/Ramo%20Rosa.png">
+                <div class="product-image" style="background-image: url('https://raw.githubusercontent.com/eteread/eterea-imagenes/main/Ramo%20Rosa.png')"></div>
+                <h3>Ramo de Rosas</h3>
+                <div class="product-includes">
+                    <strong>Incluye:</strong>
+                    <ul>
+                        <li>5 Rosas</li>
+                        <li>1 Girasol</li>
+                        <li>1 Mariposa</li>
+                        <li>Talle: MEDIANO</li>
+                        <li>Color a su elección</li>
+                    </ul>
+                </div>
+                <div class="price">Consultar precio</div>
+            </div>
+
+            <!-- Coronas -->
+            <div class="product-card" data-category="coronas" data-image="https://raw.githubusercontent.com/eteread/eterea-imagenes/main/Corona.png">
+                <div class="product-image" style="background-image: url('https://raw.githubusercontent.com/eteread/eterea-imagenes/main/Corona.png')"></div>
+                <h3>Corona Premium</h3>
+                <div class="product-includes">
+                    <strong>Incluye:</strong>
+                    <ul>
+                        <li>25 Rosas</li>
+                        <li>Corona mediana</li>
+                        <li>2 Mariposas</li>
+                        <li>Perlas decorativas</li>
+                        <li>Color a su elección</li>
+                    </ul>
+                </div>
+                <div class="price">Consultar precio</div>
+            </div>
+
+            <div class="product-card" data-category="coronas" data-image="https://raw.githubusercontent.com/eteread/eterea-imagenes/main/Lazo.png">
+                <div class="product-image" style="background-image: url('https://raw.githubusercontent.com/eteread/eterea-imagenes/main/Lazo.png')"></div>
+                <h3>Corona de Novia</h3>
+                <div class="product-includes">
+                    <strong>Incluye:</strong>
+                    <ul>
+                        <li>25 Rosas</li>
+                        <li>Lazo decorativo</li>
+                        <li>Velo de novia</li>
+                        <li>Color a su elección</li>
+                    </ul>
+                </div>
+                <div class="price">Consultar precio</div>
+            </div>
+
+            <div class="product-card" data-category="coronas" data-image="https://raw.githubusercontent.com/eteread/eterea-imagenes/main/MiniCorona.png">
+                <div class="product-image" style="background-image: url('https://raw.githubusercontent.com/eteread/eterea-imagenes/main/MiniCorona.png')"></div>
+                <h3>Mini Corona</h3>
+                <div class="product-includes">
+                    <strong>Incluye:</strong>
+                    <ul>
+                        <li>Cinta Personalizada</li>
+                        <li>Foto</li>
+                    </ul>
+                </div>
+                <div class="price">Consultar precio</div>
+            </div>
+
+            <!-- Especiales -->
+            <div class="product-card" data-category="especiales" data-image="https://raw.githubusercontent.com/eteread/eterea-imagenes/main/Corazon%20Dulce.png">
+                <div class="product-image" style="background-image: url('https://raw.githubusercontent.com/eteread/eterea-imagenes/main/Corazon%20Dulce.png')"></div>
+                <h3>Caja Especial</h3>
+                <div class="product-includes">
+                    <strong>Incluye:</strong>
+                    <ul>
+                        <li>5 Bombones</li>
+                        <li>Listón decorativo</li>
+                        <li>Rosas</li>
+                        <li>Letra a tu elección</li>
+                    </ul>
+                </div>
+                <div class="price">Consultar precio</div>
+            </div>
+
+            <div class="product-card" data-category="especiales" data-image="https://raw.githubusercontent.com/eteread/eterea-imagenes/main/Foto.png">
+                <div class="product-image" style="background-image: url('https://raw.githubusercontent.com/eteread/eterea-imagenes/main/Foto.png')"></div>
+                <h3>Noche Estrellada</h3>
+                <div class="product-includes">
+                    <strong>Incluye:</strong>
+                    <ul>
+                        <li>1 Girasol</li>
+                        <li>10 Florecitas</li>
+                        <li>10 Rosas</li>
+                        <li>Perlas decorativas</li>
+                        <li>Foto de la Noche Estrellada</li>
+                    </ul>
+                </div>
+                <div class="price">Consultar precio</div>
+            </div>
+
+            <div class="product-card" data-category="especiales" data-image="https://raw.githubusercontent.com/eteread/eterea-imagenes/main/Letra.png">
+                <div class="product-image" style="background-image: url('https://raw.githubusercontent.com/eteread/eterea-imagenes/main/Letra.png')"></div>
+                <h3>Caja con Letra</h3>
+                <div class="product-includes">
+                    <strong>Incluye:</strong>
+                    <ul>
+                        <li>Caja decorativa</li>
+                        <li>Letra personalizada</li>
+                        <li>Rosas</li>
+                        <li>Bombones</li>
+                        <li>Color a su elección</li>
+                    </ul>
+                </div>
+                <div class="price">Consultar precio</div>
+            </div>
+
+            <!-- Infantiles -->
+            <div class="product-card" data-category="infantiles" data-image="https://raw.githubusercontent.com/eteread/eterea-imagenes/main/Tulipanes.png">
+                <div class="product-image" style="background-image: url('https://raw.githubusercontent.com/eteread/eterea-imagenes/main/Tulipanes.png')"></div>
+                <h3>Tulipanes con Peluche</h3>
+                <div class="product-includes">
+                    <strong>Incluye:</strong>
+                    <ul>
+                        <li>6 Tulipanes</li>
+                        <li>Peluche a tu elección</li>
+                    </ul>
+                </div>
+                <div class="price">Consultar precio</div>
+            </div>
+
+            <div class="product-card" data-category="infantiles" data-image="https://raw.githubusercontent.com/eteread/eterea-imagenes/main/Hotwheels.png">
+                <div class="product-image" style="background-image: url('https://raw.githubusercontent.com/eteread/eterea-imagenes/main/Hotwheels.png')"></div>
+                <h3>Colección Hot Wheels</h3>
+                <div class="product-includes">
+                    <strong>Incluye:</strong>
+                    <ul>
+                        <li>4 Rosas</li>
+                        <li>3 Hot Wheels</li>
+                        <li>Color a su elección</li>
+                    </ul>
+                </div>
+                <div class="price">Consultar precio</div>
+            </div>
+
+            <div class="product-card" data-category="infantiles" data-image="https://raw.githubusercontent.com/eteread/eterea-imagenes/main/Spider%20Heart.png">
+                <div class="product-image" style="background-image: url('https://raw.githubusercontent.com/eteread/eterea-imagenes/main/Spider%20Heart.png')"></div>
+                <h3>Colección Spider-Man</h3>
+                <div class="product-includes">
+                    <strong>Incluye:</strong>
+                    <ul>
+                        <li>25 Rosas</li>
+                        <li>Telaraña decorativa</li>
+                        <li>Spider-man</li>
+                        <li>Notitas personalizadas</li>
+                        <li>Color a su elección</li>
+                    </ul>
+                </div>
+                <div class="price">Consultar precio</div>
+            </div>
+
+            <div class="product-card" data-category="infantiles" data-image="https://raw.githubusercontent.com/eteread/eterea-imagenes/main/Stich.png">
+                <div class="product-image" style="background-image: url('https://raw.githubusercontent.com/eteread/eterea-imagenes/main/Stich.png')"></div>
+                <h3>Ramo con Stitch</h3>
+                <div class="product-includes">
+                    <strong>Incluye:</strong>
+                    <ul>
+                        <li>3 Rosas</li>
+                        <li>Peluche Stitch</li>
+                        <li>Color a su elección</li>
+                    </ul>
+                </div>
+                <div class="price">Consultar precio</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Process Section -->
+<section id="proceso" class="section">
+    <div class="container">
+        <h2>Proceso de Compra</h2>
+        <div class="process">
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Contacto</h3>
+                    <p>Escríbenos al 0985300259 y solicita la referencia deseada de nuestro catálogo</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Personalización</h3>
+                    <p>Elige colores, tamaños y personaliza tu pedido según tus gustos y necesidades</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Reserva</h3>
+                    <p>Separa tu detalle con 5 días de anticipación y con un abono del 50%</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Entrega</h3>
+                    <p>Recibe tu hermoso arreglo de flores eternas listo para regalar</p>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 3rem;">
+            <h3 style="color: #8b7a68; margin-bottom: 1rem;">Métodos de Pago</h3>
+            <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+                <div style="background: white; padding: 1.5rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                    <strong>💳 Transferencia Bancaria</strong>
+                </div>
+                <div style="background: white; padding: 1.5rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                    <strong>💵 Efectivo</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contacto" class="section">
+    <div class="container">
+        <h2>Contacto</h2>
+        <div class="contact-info">
+            <h3 style="font-size: 2rem; margin-bottom: 1rem;">¿Listo para tu próximo presente?</h3>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">
+                Contáctanos y encuentra la creación perfecta para cada persona y ocasión
+            </p>
+            <div class="contact-methods">
+                <div class="contact-method">
+                    <div class="icon">📱</div>
+                    <div>
+                        <strong>WhatsApp</strong>
+                        <a href="https://wa.me/+593985300259" target="_blank" style="color: white; text-decoration: none; background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 25px; display: inline-block; margin-top: 0.5rem; transition: all 0.3s ease;">
+                            📞 0985300259
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-method">
+                    <div class="icon">💬</div>
+                    <div>
+                        <strong>Mensaje Directo</strong>
+                        <p>Escríbenos por redes sociales</p>
+                    </div>
+                </div>
+                <div class="contact-method">
+                    <div class="icon">🎁</div>
+                    <div>
+                        <strong>Personalización</strong>
+                        <p>Adaptamos cada pedido</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Etérea</h3>
+                <p>Flores eternas hechas a mano para capturar la belleza de lo efímero y transformarla en arte duradero.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p>📱 <a href="https://wa.me/+593985300259" target="_blank" style="color: #d4af37; text-decoration: none;">0985300259</a></p>
+                <p>🎨 Personalización disponible</p>
+                <p>⏰ Entregas programadas</p>
+            </div>
+            <div class="footer-section">
+                <h3>Servicios</h3>
+                <p>✨ Flores eternas artesanales</p>
+                <p>🎁 Regalos personalizados</p>
+                <p>👑 Coronas y tocados</p>
+                <p>🎨 Diseños únicos</p>
+            </div>
+        </div>
+        <div class="social-links">
+            <a href="https://wa.me/+593985300259" target="_blank" title="WhatsApp">📱</a>
+            <a href="https://www.instagram.com/eterea_gd?igsh=MXFnZ3Q2Mjl5ZTFheA==" target="_blank" title="Instagram">📷</a>
+            <a href="#" title="Facebook">📘</a>
+        </div>
+        <p style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.2);">
+            © 2025 Etérea. Todos los derechos reservados. "Encuentra tu próximo presente"
+        </p>
+    </div>
+</footer>
+
+<!-- Product Modal -->
+<div id="productModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <div class="modal-body">
+            <div class="modal-image"></div>
+            <div class="modal-info">
+                <h3 class="modal-title"></h3>
+                <div class="modal-includes"></div>
+                <div class="modal-price"></div>
+                <button class="order-button">Solicitar este diseño</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// Category filtering
+const categoryBtns = document.querySelectorAll('.category-btn');
+const productCards = document.querySelectorAll('.product-card');
+
+categoryBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        // Remove active class from all buttons
+        categoryBtns.forEach(b => b.classList.remove('active'));
+        
+        // Add active class to clicked button
+        btn.classList.add('active');
+        
+        const category = btn.dataset.category;
+        
+        productCards.forEach(card => {
+            if (category === 'all' || card.dataset.category === category) {
+                card.style.display = 'block';
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 10);
+            } else {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    card.style.display = 'none';
+                }, 300);
+            }
+        });
+    });
+});
+
+// Modal functionality
+const modal = document.getElementById('productModal');
+const modalImage = document.querySelector('.modal-image');
+const modalTitle = document.querySelector('.modal-title');
+const modalIncludes = document.querySelector('.modal-includes');
+const modalPrice = document.querySelector('.modal-price');
+const closeModal = document.querySelector('.close-modal');
+const orderButton = document.querySelector('.order-button');
+
+productCards.forEach(card => {
+    card.addEventListener('click', () => {
+        const imageUrl = card.dataset.image;
+        const title = card.querySelector('h3').textContent;
+        const includesHTML = card.querySelector('.product-includes').innerHTML;
+        const price = card.querySelector('.price').textContent;
+        
+        modalImage.style.backgroundImage = `url('${imageUrl}')`;
+        modalTitle.textContent = title;
+        modalIncludes.innerHTML = includesHTML;
+        modalPrice.textContent = price;
+        
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    });
+});
+
+closeModal.addEventListener('click', () => {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+});
+
+window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+});
+
+orderButton.addEventListener('click', () => {
+    const productName = modalTitle.textContent;
+    const whatsappUrl = `https://wa.me/593985300259?text=Hola%20Etérea,%20estoy%20interesado%20en%20el%20producto:%20${encodeURIComponent(productName)}`;
+    window.open(whatsappUrl, '_blank');
+});
+
+// Smooth scrolling for navigation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+            window.scrollTo({
+                top: targetElement.offsetTop - 70,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
+// Mobile menu toggle (for smaller screens)
+const menuToggle = document.createElement('div');
+menuToggle.innerHTML = '☰';
+menuToggle.style.fontSize = '2rem';
+menuToggle.style.cursor = 'pointer';
+menuToggle.style.display = 'none';
+menuToggle.style.position = 'absolute';
+menuToggle.style.right = '20px';
+menuToggle.style.top = '10px';
+
+const nav = document.querySelector('nav');
+nav.appendChild(menuToggle);
+
+const navLinks = document.querySelector('.nav-links');
+
+menuToggle.addEventListener('click', () => {
+    if (navLinks.style.display === 'flex') {
+        navLinks.style.display = 'none';
+    } else {
+        navLinks.style.display = 'flex';
+        navLinks.style.flexDirection = 'column';
+        navLinks.style.position = 'absolute';
+        navLinks.style.top = '100%';
+        navLinks.style.right = '0';
+        navLinks.style.background = 'rgba(139, 122, 104, 0.95)';
+        navLinks.style.width = '100%';
+        navLinks.style.padding = '1rem';
+        navLinks.style.gap = '1rem';
+    }
+});
+
+// Check screen size and adjust menu
+function checkScreenSize() {
+    if (window.innerWidth <= 768) {
+        menuToggle.style.display = 'block';
+        navLinks.style.display = 'none';
+    } else {
+        menuToggle.style.display = 'none';
+        navLinks.style.display = 'flex';
+    }
+}
+
+window.addEventListener('resize', checkScreenSize);
+checkScreenSize();
+
+// Animation on scroll
+const animateOnScroll = () => {
+    const elements = document.querySelectorAll('.product-card, .process-step, .contact-method');
+    
+    elements.forEach(element => {
+        const elementPosition = element.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.2;
+        
+        if (elementPosition < screenPosition) {
+            element.style.opacity = '1';
+            element.style.transform = 'translateY(0)';
+        }
+    });
+};
+
+// Set initial state for animation
+window.addEventListener('load', () => {
+    const elements = document.querySelectorAll('.product-card, .process-step, .contact-method');
+    elements.forEach(element => {
+        element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        element.style.opacity = '0';
+        element.style.transform = 'translateY(20px)';
+    });
+    
+    setTimeout(() => {
+        animateOnScroll();
+    }, 500);
+});
+
+window.addEventListener('scroll', animateOnScroll);
+</script>
+</body>
+</html>
